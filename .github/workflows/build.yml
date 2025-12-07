@@ -18,7 +18,7 @@ jobs:
           
       - name: Init LineageOS kernel manifest
         run: |
-          repo init -u https://github.com/LineageOS/android_kernel_google_gs-6.1_manifest.git -b lineage-23.1
+          repo init --depth=1 -u https://github.com/LineageOS/android_kernel_google_gs-6.1_manifest.git -b lineage-23.1
           repo sync -c -j$(nproc)
 
       - name: Run build_pantah.sh
