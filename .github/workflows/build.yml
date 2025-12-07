@@ -14,11 +14,11 @@ jobs:
       - name: Install required packages
         run: |
           sudo apt-get update
-          wget https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/master/setup/android_build_env.sh | bash android_build_env.sh
-
+          curl -LSs https://raw.githubusercontent.com/akhilnarang/scripts/refs/heads/master/setup/android_build_env.sh | bash -
+          
       - name: Init LineageOS kernel manifest
         run: |
-          repo init -u https://github.com/LineageOS/android_kernel_google_gs-6.1_manifest.git
+          repo init -u https://github.com/LineageOS/android_kernel_google_gs-6.1_manifest.git -b lineage-23.1
           repo sync -c -j$(nproc)
 
       - name: Run build_pantah.sh
